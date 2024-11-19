@@ -1,0 +1,49 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+
+{% block main-content %}
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-sm-4 offset-sm-4">
+            <h2 class="text-center">LOGIN</h2>
+            <hr>
+            <form action="" method="post" enctype="multipart/form-data" novalidate class="shadow p-5">
+        
+                {% csrf_token %}
+        
+                {% if messages %}
+                {{ message.tags }}
+                <div class="alert alert-primary" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <label for="first"> Username: </label>
+                <br>
+                <input type="text"  name="username" placeholder="Enter your Username" required>
+                <br><br>
+                <label for="password"> Password: </label>
+                <br>
+                <input type="password" name="password" placeholder="Enter your Password" required>
+                <br><br>
+                <button type="submit" name="submit_type" class="btn btn-primary"> Submit </button>
+                <br>
+                <div class="text-center text-primary fw-bold">
+                    <small>New User <a href="/register/" class="text-danger">Create an Account</a></small>
+                </div>   
+                
+                    
+            </form>
+        
+
+        </div>
+    </div>
+    
+</div>
+
+
+{% endblock main-content %}

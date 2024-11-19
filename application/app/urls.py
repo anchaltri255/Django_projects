@@ -22,10 +22,17 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', home, name="home"),
-
     path('admin/', admin.site.urls),
-    
+    path('about/',about,name="about"),
+    path('contact/',contact,name="contact"),
+    path('register/',register,name="register"),
+    path('login/', login_page, name="login_page"),
+    path('logout/', logout_page, name="logout_page"),
+    path('address/',address,name="address"),
+
+    path('profile/',ProfileView.as_view(),name="profile"),
+    path('updateAddress/<int:pk>',UpdateAddress.as_view(),name="updateAddress"),
     path("category/<slug:val>", CategoryView.as_view(),name="category"),
     path("category-title/<val>", CategoryTitle.as_view(),name="category-title"),
-    path("product-detail/<int:pk>", ProductDetail.as_view(),name="product-detail")
+    path("product-detail/<int:pk>", ProductDetail.as_view(),name="product-detail"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
