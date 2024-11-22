@@ -1,6 +1,6 @@
 {% extends "myapp/base.html" %}
 {% load static %}
-{% block title %}Register{% endblock title %}
+{% block title %}Login{% endblock title %}
 
 {% block main-content %}
 
@@ -30,7 +30,8 @@
                 <br>
                 <input type="password" name="password" placeholder="Enter your Password" required>
                 <br><br>
-                <button type="submit" name="submit_type" class="btn btn-primary"> Submit </button>
+                <small><a href="{% url 'password_reset' %}">Forget Password ?</a></small><br><br>
+                <button type="submit" name="submit_type" class="btn btn-primary">Login </button>
                 <br>
                 <div class="text-center text-primary fw-bold">
                     <small>New User <a href="/register/" class="text-danger">Create an Account</a></small>

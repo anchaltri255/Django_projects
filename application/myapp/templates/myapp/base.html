@@ -20,13 +20,14 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="{% static 'app/images/product/download.png' %}" width="40" height="40"/>
+            <img src="{% static 'app/images/product/logo shop.png' %}" width="40" height="40"/>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if request.user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
@@ -36,20 +37,20 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{% url 'category' 'WM' %}">Washing Machine</a></li>
-                  <li><a class="dropdown-item" href="{% url 'category' 'AC' %}">Air Conditioner</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'FG' %}">Refrigerator</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'CO' %}">Cooler</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'AC' %}">Air Conditioner</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'GZ' %}">Water Gizar</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'FUN' %}">Furniture</a></li>
+                  <li><a class="dropdown-item" href="{% url 'category' 'FAN' %}">Fan</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">Telivison</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'IN' %}">Induction</a></li>
-                  <li><a class="dropdown-item" href="{% url 'category' 'CO' %}">Cooler</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'CH' %}">Chair</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'MX' %}">Mixer</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'PR' %}">Press</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'TB' %}">Table</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Sofa</a></li>
                   <li><a class="dropdown-item" href="{% url 'category' 'BED' %}">Bed</a></li>
-                  <li><a class="dropdown-item" href="{% url 'category' 'FAN' %}">Fan</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -78,22 +79,24 @@
               <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                 <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
                 <li><a class="dropdown-item" href="#">Orders</a></li>
-                <li><a class="dropdown-item" href="#">Change Password</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+                <li><a class="dropdown-item" href="/logout/">Logout</a></li>
               </ul>
             </li>
             <li class="nav-item mx-2">
-              <a href="#" class="nav-link text-white">Cart 4</a>
+              <a href="#" class="nav-link text-white">Cart</a>
             </li>
             <li class="nav-item mx-2">
-              <a href="#" class="nav-link text-white">wishlist 4</a>
+              <a href="#" class="nav-link text-white">wishlist</a>
             </li>
+            {% else %}
             <li class="nav-item mx-2">
               <a href="/login/" class="nav-link text-white">Login</a>
             </li>
             <li class="nav-item mx-2">
               <a href="{% url 'register' %}" class="nav-link text-white">Registration</a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -116,9 +119,9 @@
 
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <script script="{% static 'app/js/owl.carousel.min.js'%}"></script>
-    <script script="{% static 'app/js/myscript.js'%}"></script>
-    <script script="{% static 'app/js/allmin.js'%}"></script>
+    <script src="{% static 'app/js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'app/js/myscript.js'%}"></script>
+    <script src="{% static 'app/js/allmin.js'%}"></script>
    
 </body>
 </html>
