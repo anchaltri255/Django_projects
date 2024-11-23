@@ -19,15 +19,65 @@
                     <li>{{product.description}}</li>
                 </ul>
 
-                <form accept="/addtocart" class="d-online">
-                    <input type="hidden" name="prod_id" value="{{product.id}}"/>
-                    <button type="submit" class="btn btn-primary shadow px-4 py-2">Addtocart
+                <div id="message-box" class="alert alert-success mt-3" style="display: none;">
+                    <!-- Success or Error messages will appear here -->
+                </div>
+
+                <!-- Add to Cart Button -->
+                <button type="button" class="btn btn-primary shadow px-4 py-2" id="add-to-cart-btn" data-product-id="{{product.id}}">
+                    Add to Cart
                 </button>
+
+                <br><br>
+
+                <!-- Buy Now Button -->
+                <form method="POST" action="{% url 'showcart' %}" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="prod_id" value="{{product.id}}"/>
+                    <button type="submit" class="btn btn-warning shadow px-4 py-2 ms-9">Buy Now</button>
                 </form>
-                <br>
-                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-4 py-2 ms-9">Buy Now</a>
-                
             </div>
         </div>    
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            const addToCartBtn = document.getElementById("add-to-cart-btn");
+            const messageBox = document.getElementById("message-box");
+
+            addToCartBtn.addEventListener("click", () => {
+                const productId = addToCartBtn.getAttribute("data-product-id");
+
+                fetch("{% url 'add_to_cart' %}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": csrfToken
+                    },
+                    body: JSON.stringify({ prod_id: productId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        messageBox.style.display = "block";
+                        messageBox.textContent = data.message;
+                        messageBox.classList.remove("alert-danger");
+                        messageBox.classList.add("alert-success");
+                    } else if (data.error) {
+                        messageBox.style.display = "block";
+                        messageBox.textContent = data.error;
+                        messageBox.classList.remove("alert-success");
+                        messageBox.classList.add("alert-danger");
+                    }
+                })
+                .catch(error => {
+                    messageBox.style.display = "block";
+                    messageBox.textContent = "An error occurred. Please try again.";
+                    messageBox.classList.remove("alert-success");
+                    messageBox.classList.add("alert-danger");
+                });
+            });
+        });
+    </script>
 {% endblock main-content %}

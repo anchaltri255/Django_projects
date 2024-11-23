@@ -35,6 +35,11 @@ urlpatterns = [
     path('addtocart/',add_to_cart,name='add_to_cart'),
     path('cart/',show_cart,name='showcart'),
     path('checkout/',show_cart,name='checkout'),
+    path('remove_from_cart/',remove_from_cart, name='remove_from_cart'),
+    path('place_order/',place_order, name='place_order'),
+    path('orders/', orders, name='orders'),
+    path('search/',search_view, name='search'),
+    path('update_cart_quantity/',update_cart_quantity, name='update_cart_quantity'),
 
     path('profile/',ProfileView.as_view(),name="profile"),
     path('updateAddress/<int:pk>',UpdateAddress.as_view(),name="updateAddress"),

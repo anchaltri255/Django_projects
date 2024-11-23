@@ -1,86 +1,195 @@
-.owl-carousel .item{
-    /* border: 1px solid black; */
-    font-size: 24px;
-    text-align: center;
-    margin-top: 20px;
-    transition: transform .5s ease;
-   }
-   
-    .owl-carousel .item:hover{
-       /* border: 1px solid black; */
-       transform : scale(1.1);
-   }
-   
-   /* .owl-carousel img{
-       transition: transform .5s ease;
-     }
-    .owl-carousel img:hover{
-       
-       transform : scale(1.25);
-   } */
-   
-   .owl-next{
-    float:right;
-   }
-   .owl-prev{
-    float:left;
-   }
-   .owl-prev span{
-    font-size: 24px;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Banner Slider */
+#carouselExampleSlidesOnly .carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Information Section */
+#information .row {
+    background-color: #28a745; /* Bootstrap's bg-success color */
+    color: white;
+    padding: 40px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#information h1 {
+    font-size: 36px;
     font-weight: bold;
-   }
-   .owl-next span{
-    font-size: 24px;
+}
+
+#information small {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Main Content - Product Grid */
+.container {
+    margin-top: 40px;
+}
+
+/* Product Box Styling */
+.goodnesssec {
+    background-color: #f9f9f9;  /* Light gray background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goodnesssec:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.goodnessseccont {
+    padding: 20px;
+}
+
+.goodnessseccont img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.goodnessseccont p {
+    font-size: 18px;
     font-weight: bold;
-   }
-   
-   
-   
-   
-   .buttermilk{
-       background-color:#fff;
-       background-image:linear-gradient(#fff7ef, #fff);
-       background-image:-webkit-linear-gradient(#fff7ef, #fff);
-       background-image:-moz-linear-gradient(#fff7ef, #fff);
-       background-image:-ms-linear-gradient(#fff7ef, #fff);
-       background-image:-o-linear-gradient(#fff7ef, #fff);
-       padding:50px 40px;
-       border:1px solid #efe8e1;
-       padding-bottom:20px;
-   }
-   
-   .smbg{
-       background-color:#fff;
-       background-image:linear-gradient(rgba(110, 69, 143, 0.1), #fff);
-       background-image:-webkit-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
-       background-image:-moz-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
-       background-image:-ms-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
-       background-image:-o-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
-   }
-   
-   .curdbgpro{
-       background-color:#f1baba;
-       background-image:linear-gradient(rgba(10, 77, 123, 0.1), #f9a6a6);
-       background-image:-webkit-linear-gradient(rgba(10, 77, 123, 0.1), #f3d6d6);
-       background-image:-moz-linear-gradient(rgba(10, 77, 123, 0.1), #f4aeae);
-       background-image:-ms-linear-gradient(rgba(10, 77, 123, 0.1), #f19494);
-       background-image:-o-linear-gradient(rgba(10, 77, 123, 0.1), #f49191);
-   }
-   
-   .goodnessseccont img{
-       width:100%;
-   }
-   
-   .mlkpro{
-       color:#202020;
-       font-size:22px;
-       line-height:22px;
-       margin-bottom:15px;
-       width:43%;
-       margin:0 auto;
-       text-align:center;  
-   }
-   
-   .goodnesssec a{
-       text-decoration: none;
-   }
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Text Color Customization */
+.mlkpro {
+    color: #007bff; /* Default blue for text */
+}
+
+/* Hover Effects on Text */
+.goodnessseccont:hover p {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Specific Product Text Customization */
+.text-primary {
+    color: #3498db; /* Blue color for primary items */
+}
+
+.text-danger {
+    color: #e74c3c; /* Red color for danger items */
+}
+
+.text-success {
+    color: #2ecc71; /* Green color for success items */
+}
+
+.text-warning {
+    color: #f39c12; /* Yellow color for warning items */
+}
+
+.text-info {
+    color: #17a2b8; /* Light blue color for info items */
+}
+
+/* Grid Layout for Products */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.col-md-4, .col-sm-4 {
+    flex: 1 1 calc(33.333% - 20px); /* 3 items per row, responsive */
+    max-width: calc(33.333% - 20px);
+}
+
+/* Small screen adjustments */
+@media (max-width: 767px) {
+    .col-md-4, .col-sm-4 {
+        flex: 1 1 100%;  /* Stack product items vertically on small screens */
+        max-width: 100%;
+    }
+}
+
+/* Custom Button Styling */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+}
+
+/* Smooth Fade-in Effects for Product Items */
+.mi-go {
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .goodnessseccont p {
+        font-size: 16px;
+    }
+
+    #information h1 {
+        font-size: 28px;
+    }
+}
+
+.custom-box {
+    background-color: #003366; /* Custom dark blue */
+    color: white; /* White text */
+}
+
+/* This is the general container where the hover effect will be applied */
+.hover-zoom {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Zoom effect for the image */
+.hover-zoom img {
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: auto;
+}
+
+/* Hover effect for zooming the image */
+.hover-zoom:hover img {
+    transform: scale(1.1); /* Zoom effect */
+}
+
+/* Optional: Add a dark background to the container when hovered */
+.hover-zoom:hover {
+    background-color: #003366; /* Dark blue color */
+}
+
+/* Text inside the container */
+.goodnessseccont p {
+    position: relative;
+    z-index: 10; /* Make sure text stays above the image */
+    color: white; /* Ensure text is white */
+    font-size: 1.2rem;
+}
+
+/* Add shadow effect to the text for better visibility */
+.goodnessseccont p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}

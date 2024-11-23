@@ -18,7 +18,7 @@
                     {% for prod in product %}
                         <div class="col text-center mb-4">
                             <a href="{% url 'product-detail' prod.id%}" class="btn">
-                            <div>
+                            <div class="goodnessseccont text-center hover-zoom">
                                 <img src="{{prod.product_image.url}}" width="200px" height="200px" />
                                 
                                 <div class="fw-bold">{{prod.tittle}}</div>

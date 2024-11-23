@@ -1,0 +1,33 @@
+{% extends "myapp/base.html" %}
+{% block title %}Orders{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <h1>Your Orders</h1>
+    {% if orders %}
+        <ul>
+            {% for order in orders %}
+                
+                <div class="row cart-item">
+                    <div class="col-sm-9">
+                        <div>
+                            <h5>{{ order.product.title }}</h5>
+                            <p class="mb-3 text-muted small">{{ order.product.description }}</p>
+                            <div class="my-3">
+                                
+                                <a class="minus-cart btn" pid="{{ order.product.id }}"><i class="fas fa-minus-square fa-lg"></i></a>
+                                <span id="quantity">{{ order.quantity }}</span>
+                                <a class="plus-cart btn" pid="{{ order.product.id }}"><i class="fas fa-plus-square fa-lg"></i></a>
+                                Order #{{ order.id }} - Total: Rs. {{ order.total_amount }}
+                            </div>
+                            <div class="d-flex justify-content-between">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no orders yet.</p>
+    {% endif %}
+</div>
+{% endblock main-content %}

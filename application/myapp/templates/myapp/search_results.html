@@ -1,0 +1,27 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <h1>Search Results</h1>
+
+    {% if products %}
+        <p>Showing results for "{{ query }}"</p>
+        <ul>
+            {% for product in products %}
+                <li>
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.product_image.url }}" alt="{{ product.tittle }}" style="max-width: 100px;">
+                        <h3>{{ product.tittle }}</h3>
+                        <p>{{ product.description }}</p>
+                        <p>Price: Rs. {{ product.discounted_price }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No products found for "{{ query }}"</p>
+    {% endif %}
+</div>
+{% endblock main-content %}
