@@ -188,22 +188,21 @@ def place_order(request):
     return JsonResponse({"message": "Invalid request method", "status": "error"})
 
 def orders(request):
-    # Example logic
     user = request.user
     if user.is_authenticated:
-        # Assuming you have an Order model
+        
         user_orders = Order.objects.filter(user=user)
         return render(request, 'myapp/orders.html', {'orders': user_orders})
     else:
         return HttpResponse("You need to log in to view your orders.", status=401)
 
 def order_view(request):
-    orders = Order.objects.all()  # Example: Get all orders
+    orders = Order.objects.all()  
     return render(request, 'your_template.html', {'orders': orders})
 
 
 def search_view(request):
-    query = request.GET.get('q', '')  # Get the search query from the URL
+    query = request.GET.get('q', '')  
     products = Product.objects.all()
 
     if query:
@@ -217,13 +216,9 @@ class CategoryView(View):
     def get(self, request,val):
         product = Product.objects.filter(category=val)
         tittle = Product.objects.filter(category=val).values('tittle')
-        #count function is that we count the total title of that to respect to the title
-        #if we don't want to repated title so we use annotate
 
         return render(request, "myapp/category.html",locals())
-    #local is built-in-function to pass all the local variables from this function to the this category of html file
-
-
+    
 class CategoryTitle(View):
     def get(self,request,val):
         product = Product.objects.filter(tittle=val)
@@ -257,10 +252,15 @@ class ProfileView(View):
         else:
             messages.warning(request,"Invalid Input Data")
         return render(request,'myapp/profile.html',locals())
-    
+
+
 def address(request):
     add = Customer.objects.filter(user=request.user)
     return render(request, 'myapp/address.html',locals())
+
+class checkout(View):
+    def get(self, request):
+        return render(request,'myapp/checkout.html',locals())
 
 class UpdateAddress(View):
     def get(self, request,pk):
