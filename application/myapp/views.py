@@ -21,6 +21,9 @@ def home(request):
 def about(request):
     return render(request, "myapp/about.html")
 
+def all_category(request):
+    return render(request,"myapp/all_category.html")
+
 def contact(request):
     return render(request, "myapp/contact.html")
 

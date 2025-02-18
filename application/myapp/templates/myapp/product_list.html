@@ -1,0 +1,19 @@
+{% extends "myapp/basic.html" %}
+{% load static %}
+{% block title %}Change Password{% endblock title %}
+
+{% block main-content %}
+<h2>Product List</h2>
+
+<ul>
+    {% for product in products %}
+        <li>
+            <img src="{{ product.product_image.url }}" alt="{{ product.tittle }}" width="100">
+            <h3>{{ product.tittle }}</h3>
+            <p>Price: ${{ product.discounted_price }}</p>
+        </li>
+    {% empty %}
+        <p>No products available in this category.</p>
+    {% endfor %}
+</ul>
+{% endblock main-content %}
