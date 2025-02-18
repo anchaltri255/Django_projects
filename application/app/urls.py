@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from myapp.views import *
 from django.conf import settings
-
+from django.urls import include, path
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_view
 from myapp.forms  import MyPasswordChangeForm, MyPasswordResetForm,MySetPasswordForm
@@ -36,7 +36,6 @@ urlpatterns = [
     path('cart/',show_cart,name='showcart'),
     path('checkout/',checkout.as_view(),name='checkout'),
     path('remove_from_cart/',remove_from_cart, name='remove_from_cart'),
-    path('place_order/',place_order, name='place_order'),
     path('orders/', orders, name='orders'),
     path('search/',search_view, name='search'),
     path('update_cart_quantity/',update_cart_quantity, name='update_cart_quantity'),
@@ -46,8 +45,9 @@ urlpatterns = [
     path("category/<slug:val>", CategoryView.as_view(),name="category"),
     path("category-title/<val>", CategoryTitle.as_view(),name="category-title"),
     path("product-detail/<int:pk>", ProductDetail.as_view(),name="product-detail"),
-
+    path('', include('myapp.urls')),
     #path('logout/', auth_view.LogoutView.as_view(next_page ='login'),name="logout"),
+    path("place_order/", place_order, name="place_order"),
     
 
     path('passwordchange/',auth_view.PasswordChangeView.as_view(template_name=

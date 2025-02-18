@@ -1,33 +1,41 @@
 {% extends "myapp/basic.html" %}
-{% block title %}Orders{% endblock title %}
+{% load static %}
+{% block title %}My Orders{% endblock title %}
 
 {% block main-content %}
-<div class="container my-5">
-    <h1>Your Orders</h1>
+<div class="container mt-5">
+    <h2 class="text-center">My Orders</h2>
     {% if orders %}
-        <ul>
+        <div class="row">
             {% for order in orders %}
-                
-                <div class="row cart-item">
-                    <div class="col-sm-9">
-                        <div>
-                            <h5>{{ order.product.title }}</h5>
-                            <p class="mb-3 text-muted small">{{ order.product.description }}</p>
-                            <div class="my-3">
-                                
-                                <a class="minus-cart btn" pid="{{ order.product.id }}"><i class="fas fa-minus-square fa-lg"></i></a>
-                                <span id="quantity">{{ order.quantity }}</span>
-                                <a class="plus-cart btn" pid="{{ order.product.id }}"><i class="fas fa-plus-square fa-lg"></i></a>
-                                Order #{{ order.id }} - Total: Rs. {{ order.total_amount }}
-                            </div>
-                            <div class="d-flex justify-content-between">
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <h5 class="card-title">Order ID: {{ order.id }}</h5>
+                            <p><strong>Order Date:</strong> {{ order.created_at }}</p>
+                            <p><strong>Total Amount:</strong> Rs. {{ order.total_amount }}</p>
+                            <h6>Products:</h6>
+
+                            {% for item in order.orderitem_set.all %}
+                                <div class="d-flex align-items-center border-bottom pb-2 mb-2">
+                                    <img src="{{ item.product.product_image.url }}" alt="{{ item.product.name }}" 
+                                         class="img-thumbnail me-3" style="width: 80px; height: 80px;">
+                                    <div>
+                                        <strong>{{ item.product.name }}</strong> <br>
+                                        Quantity: {{ item.quantity }} <br>
+                                        Price: Rs. {{ item.price }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            
+                            <span class="badge bg-success">Order Confirmed</span>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-        </ul>
+            {% endfor %}
+        </div>
     {% else %}
-        <p>You have no orders yet.</p>
+        <h4 class="text-center mt-4">No Orders Found</h4>
     {% endif %}
 </div>
 {% endblock main-content %}
