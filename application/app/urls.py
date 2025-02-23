@@ -48,8 +48,11 @@ urlpatterns = [
     path('', include('myapp.urls')),
     #path('logout/', auth_view.LogoutView.as_view(next_page ='login'),name="logout"),
     path("place_order/", place_order, name="place_order"),
-    
+    path("payment/", payment_view, name="payment"),
+    path("process_payment/", process_payment, name="process_payment"),
+    path("delete_order/", delete_order, name="delete_order"),
 
+    
     path('passwordchange/',auth_view.PasswordChangeView.as_view(template_name=
     'myapp/changepassword.html',form_class=MyPasswordChangeForm, success_url=
     '/passwordchangedone'), name='passwordchange'),

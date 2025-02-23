@@ -12,8 +12,72 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q
 import json
 from .models import Order, OrderItem  # Ensure these models exist or create them
+from django.contrib.auth.decorators import login_required
+from .models import Order, Cart
 
 # Create your views here.
+
+@login_required
+def process_payment(request):
+    """Handle the payment selection and place the order"""
+    if request.method == "POST":
+        print("📩 Received POST request:", request.POST)  # Debugging Log
+
+        payment_method = request.POST.get("payment_method")
+        if not payment_method:
+            print("❌ Error: No payment method received!")  # Debugging Log
+            return JsonResponse({"status": "error", "message": "Please select a payment method."}, status=400)
+
+        user = request.user
+        cart_items = Cart.objects.filter(user=user)
+
+        if not cart_items.exists():
+            print("❌ Error: Cart is empty!")  # Debugging Log
+            return JsonResponse({"status": "error", "message": "Your cart is empty!"}, status=400)
+
+        # Create the order
+        order = Order.objects.create(user=user, total_amount=0, payment_method=payment_method)
+
+        total_amount = 0
+        for item in cart_items:
+            total_price = item.quantity * item.product.discounted_price
+            OrderItem.objects.create(order=order, product=item.product, quantity=item.quantity, price=total_price)
+            total_amount += total_price
+
+        # Update the order amount
+        order.total_amount = total_amount + 40  # Add shipping charge
+        order.save()
+
+        # Clear the cart
+        cart_items.delete()
+
+        print("✅ Order placed successfully!")  # Debugging Log
+        return JsonResponse({"status": "success", "message": "Order placed successfully!"})
+
+    print("❌ Error: Invalid request method.")  # Debugging Log
+    return JsonResponse({"status": "error", "message": "Invalid request method."}, status=405)
+
+def delete_order(request):
+    """Handles order deletion (cancellation)"""
+    if request.method == "POST":
+        print("📩 Received POST request:", request.POST)  # Debug Log
+
+        order_id = request.POST.get("order_id")
+        if not order_id:
+            print("❌ Error: Order ID is missing.")  # Debug Log
+            return JsonResponse({"status": "error", "message": "Invalid order ID."}, status=400)
+
+        try:
+            order = Order.objects.get(id=order_id, user=request.user)
+            order.delete()
+            print("✅ Order deleted successfully!")  # Debug Log
+            return JsonResponse({"status": "success", "message": "Order canceled successfully!"})
+        except Order.DoesNotExist:
+            print("❌ Error: Order not found.")  # Debug Log
+            return JsonResponse({"status": "error", "message": "Order not found."}, status=404)
+
+    print("❌ Error: Invalid request method.")  # Debug Log
+    return JsonResponse({"status": "error", "message": "Invalid request method."}, status=405)
 
 def home(request):
     return render(request, "myapp/home.html")
@@ -79,17 +143,32 @@ def register(request):
         return render(request, 'myapp/register.html')
     return render(request, 'myapp/register.html')
 
+@login_required
 def add_to_cart(request):
     if request.method == "POST":
-        product_id = request.POST.get('prod_id')
+        product_id = request.POST.get("prod_id")
+        print("📩 Received Add to Cart Request. Product ID:", product_id)  # Debugging Log
+
+        if not product_id:
+            return JsonResponse({"error": "No product ID provided."}, status=400)
+
         try:
             product = Product.objects.get(id=product_id)
-            Cart.objects.create(user=request.user, product=product)
-            # return redirect('/cart')
-            return JsonResponse({"message": "Product added to cart successfully!"}, status=200)
+
+            # ✅ Check if the product already exists in the cart
+            cart_item, created = Cart.objects.get_or_create(user=request.user, product=product)
+
+            if not created:
+                cart_item.quantity += 1  # Increase quantity instead of adding a new item
+                cart_item.save()
+
+            print("✅ Product added to cart successfully!")  # Debugging Log
+            return JsonResponse({"message": "Product added to cart!"}, status=200)
+
         except Product.DoesNotExist:
-            return JsonResponse({"error": "Product added to cart successfully!"}, status=404)
-    return JsonResponse({"error": "Invalid request method."}, status=400) 
+            return JsonResponse({"error": "Product does not exist."}, status=404)
+
+    return JsonResponse({"error": "Invalid request method."}, status=400)
 
 def show_cart(request):
     if request.method == "POST":
@@ -115,47 +194,52 @@ def update_cart_quantity(request):
         product_id = data.get('product_id')
         action = data.get('action')
 
-        try:
-            cart_item = Cart.objects.get(user=request.user, product_id=product_id)
-            if action == 'increase':
-                cart_item.quantity += 1
-            elif action == 'decrease' and cart_item.quantity > 1:
-                cart_item.quantity -= 1
-            else:
-                return JsonResponse({"status": "error", "message": "Invalid action or quantity cannot be less than 1."}, status=400)
+        cart_item = Cart.objects.filter(user=request.user, product_id=product_id).first()
 
-            cart_item.save()
-
-            # Recalculate total amounts
-            cart_items = Cart.objects.filter(user=request.user)
-            amount = sum(item.quantity * item.product.discounted_price for item in cart_items)
-            total_amount = amount + 40  # Add shipping
-
-            return JsonResponse({
-                "status": "success",
-                "new_quantity": cart_item.quantity,
-                "new_amount": amount,
-                "new_total": total_amount
-            })
-        except Cart.DoesNotExist:
+        if not cart_item:
             return JsonResponse({"status": "error", "message": "Cart item does not exist."}, status=404)
+
+        if action == 'increase':
+            cart_item.quantity += 1
+        elif action == 'decrease' and cart_item.quantity > 1:
+            cart_item.quantity -= 1
+        else:
+            return JsonResponse({"status": "error", "message": "Invalid action or quantity cannot be less than 1."}, status=400)
+
+        cart_item.save()
+
+        # Recalculate total amounts
+        cart_items = Cart.objects.filter(user=request.user)
+        amount = sum(item.quantity * item.product.discounted_price for item in cart_items)
+        total_amount = amount + 40  # Add shipping
+
+        return JsonResponse({
+            "status": "success",
+            "new_quantity": cart_item.quantity,
+            "new_amount": amount,
+            "new_total": total_amount
+        })
 
     return JsonResponse({"status": "error", "message": "Invalid request method."}, status=405)
 
 def remove_from_cart(request):
     if request.method == "POST":
         data = json.loads(request.body)
-        product_id = data.get('product_id')  # Ensure this key matches the JS payload
+        product_id = data.get('product_id')
 
         if product_id:
-            try:
-                cart_item = Cart.objects.get(user=request.user, product_id=product_id)
+            cart_item = Cart.objects.filter(user=request.user, product_id=product_id).first()
+
+            if cart_item:
                 cart_item.delete()
                 return JsonResponse({"status": "success", "message": "Item removed successfully"})
-            except Cart.DoesNotExist:
+            else:
                 return JsonResponse({"status": "error", "message": "Product does not exist in your cart."}, status=404)
+
         return JsonResponse({"status": "error", "message": "Invalid product ID"}, status=400)
+    
     return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
+
 
 def place_order(request):
     if request.method == "POST":
@@ -213,6 +297,10 @@ def search_view(request):
         products = products.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
     return render(request, 'shop/search_results.html', {'products': products, 'query': query})
+
+def payment_view(request):
+    """Render the payment selection page."""
+    return render(request, "myapp/payment.html")
 
 
 class CategoryView(View):

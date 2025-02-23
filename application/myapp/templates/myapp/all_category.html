@@ -5,1327 +5,1279 @@
 {% block main-content %}
 
 {% if request.GET.category == "Furniture" %}
-    <div class="container mt-5">
-        <h2 class="text-center">Furniture Collection</h2>
+    <div class="container mt-4">
+        <h2 ch2 style="font-weight: bold; margin: 20px 0; text-align: center;">Furniture Collection</h2>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <a href="{% url 'category' 'OF' %}">
                     <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                    <a href="{% url 'category' 'OF' %}" class="text-decoration-none text-dark">Office furniture</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'SP' %}">
                     <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                    <a href="{% url 'category' 'SP' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
                 </h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <a href="{% url 'category' 'SF' %}">
                     <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                    <a href="{% url 'category' 'SF' %}" class="text-decoration-none text-dark">Sofas</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'CH' %}">
                     <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                    <a href="{% url 'category' 'CH' %}" class="text-decoration-none text-dark">Chairs</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'WS' %}">
                     <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                    <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'WD' %}">
                     <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                    <a href="{% url 'category' 'WD' %}" class="text-decoration-none text-dark">Wardrobes</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'BE' %}">
                     <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                    <a href="{% url 'category' 'BE' %}" class="text-decoration-none text-dark">Beds</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'SR' %}">
                     <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                    <a href="{% url 'category' 'SR' %}" class="text-decoration-none text-dark">Shoe Racks</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'CS' %}">
                     <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                    <a href="{% url 'category' 'CS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'RC' %}">
                     <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                    <a href="{% url 'category' 'RC' %}" class="text-decoration-none text-dark">Recliners</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'WS' %}">
                     <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                    <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
                 </h4>
             </div>
-            <div class="col-md-4">
-                <a href="{% url 'all_category' %}">
+            <div class="col-md-2">
+                <a href="{% url 'category' 'WS' %}">
                     <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
                 </a>
                 <h4 class="product-name">
-                    <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                    <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
                 </h4>
             </div>
         </div>
     </div>
 {% elif request.GET.category == "Sofas/Seating" %}
 <div class="container mt-5">
-    <h2 class="text-center">Sofas/Seating Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Sofas/Seating Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/download (5).jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (4).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sectional Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sectional Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/download (38).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas Cum Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas Cum Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'RC' %}">
                 <img src="{% static 'app/images/product/download (27).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliner Sets</a>
+                <a href="{% url 'category' 'RC' %}" class="text-decoration-none text-dark">Recliner Sets</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (44).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Futons</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Futons</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (53).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chair Loungers</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chair Loungers</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/Arm-Chair.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofa Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofa Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/images (68).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Settels & Benches</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Settels & Benches</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OT' %}">
                 <img src="{% static 'app/images/product/Pouf ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'OT' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/office chairs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Office Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/images (72).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Gaming Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Gaming Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/outdoors.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Outdoor Seating</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Outdoor Seating</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Kitchen/Dining" %}
 <div class="container mt-5">
-    <h2 class="text-center">Kitchen/Dining Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Kitchen/Dining Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
-                <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
+                <img src="{% static 'app/images/product/kitchendining.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'RC' %}" class="text-decoration-none text-dark">Dining Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
+                <img src="{% static 'app/images/product/dining benches.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Dining Benches</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
-                <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+                <img src="{% static 'app/images/product/bar.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Bar Furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'CH' %}">
+                <img src="{% static 'app/images/product/chairdinner.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'CH' %}" class="text-decoration-none text-dark">Dining Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
+                <img src="{% static 'app/images/product/unique crockery.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Crockery Units</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WD' %}">
+                <img src="{% static 'app/images/product/dinnerset.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WD' %}" class="text-decoration-none text-dark">Dining Table Sets</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
+                <img src="{% static 'app/images/product/trolleys.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Serving Trolley</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
+                <img src="{% static 'app/images/product/barware.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Barware</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Living/Bedroom" %}
 <div class="container mt-5">
-    <h2 class="text-center">Living/Bedroom Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Living/Bedroom Collection</h2>
     <div class="row">
-        <div class="col-md-4">
-            <a href="{% url 'category' 'OF' %}">
-                <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'BE' %}">
+                <img src="{% static 'app/images/product/images (83).jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'BE' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
+                <img src="{% static 'app/images/product/mattress.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Mattresses</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'category' 'SF' %}">
-                <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OT' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'OT' %}" class="text-decoration-none text-dark">Ottomans</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'CH' %}">
+                <img src="{% static 'app/images/product/download (78).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'CH' %}" class="text-decoration-none text-dark">Chairs</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'TB' %}">
+                <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'TB' %}" class="text-decoration-none text-dark">Tables</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WD' %}">
+                <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'WD' %}" class="text-decoration-none text-dark">Wardrobes</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'DM' %}">
+                <img src="{% static 'app/images/product/bedroomDresser.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'DM' %}" class="text-decoration-none text-dark">Dresser Mirrors</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'CD' %}">
+                <img src="{% static 'app/images/product/Chest mordern.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'CD' %}" class="text-decoration-none text-dark">Chest of Drawers</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
+                <img src="{% static 'app/images/product/Wall Shelves.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wall Shelves</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'BS' %}">
+                <img src="{% static 'app/images/product/Drawers1.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'BS' %}" class="text-decoration-none text-dark">Bed Side Tables</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'SD' %}">
+                <img src="{% static 'app/images/product/Desks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'SD' %}" class="text-decoration-none text-dark">Study Desk</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OC' %}">
+                <img src="{% static 'app/images/product/Occasionals.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'OC' %}" class="text-decoration-none text-dark">Occasional Chairs</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'BC' %}">
+                <img src="{% static 'app/images/product/download (20).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'BC' %}" class="text-decoration-none text-dark">Book Case & Cabinates</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Outdoor Living" %}
 <div class="container mt-5">
-    <h2 class="text-center">Outdoor Living Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Outdoor Living Collection</h2>
     <div class="row">
-        <div class="col-md-4">
-            <a href="{% url 'category' 'OF' %}">
-                <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OS' %}">
+                <img src="{% static 'app/images/product/outdoor.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'OS' %}" class="text-decoration-none text-dark">Outdoor Sofas & Sectionals</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'BH' %}">
+                <img src="{% static 'app/images/product/images (67).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'BH' %}" class="text-decoration-none text-dark">Benches</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'category' 'SF' %}">
-                <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OD' %}">
+                <img src="{% static 'app/images/product/Outdoor Sets.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'OD' %}" class="text-decoration-none text-dark">Outdoor Dining Sets</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'GF' %}">
+                <img src="{% static 'app/images/product/outdoors.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'GF' %}" class="text-decoration-none text-dark">Garden Furniture Sets</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OB' %}">
+                <img src="{% static 'app/images/product/Outdoor Storages.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'OB' %}" class="text-decoration-none text-dark">Outdoor Storage Boxe</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OK' %}">
+                <img src="{% static 'app/images/product/Outdoor 1.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'OK' %}" class="text-decoration-none text-dark">Outdoor Kitchens & Bars</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'AH' %}">
+                <img src="{% static 'app/images/product/Adirondack Chairs1.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'AH' %}" class="text-decoration-none text-dark">Adirondack Chairs</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Home Decor" %}
 <div class="container mt-5">
-    <h2 class="text-center">Home Decor Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Home Decor Collection</h2>
     <div class="row">
-        <div class="col-md-4">
-            <a href="{% url 'category' 'OF' %}">
-                <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'ST' %}">
+                <img src="{% static 'app/images/product/Spiritual4.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'ST' %}" class="text-decoration-none text-dark">Spiritual</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WC' %}">
+                <img src="{% static 'app/images/product/Wall Shelves.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WC' %}" class="text-decoration-none text-dark">Wall Decor</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'category' 'SF' %}">
-                <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'DM' %}">
+                <img src="{% static 'app/images/product/Dresser Mirrors.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'DM' %}" class="text-decoration-none text-dark">Mirrors</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'ST' %}">
+                <img src="{% static 'app/images/product/Spirituals1.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'ST' %}" class="text-decoration-none text-dark">Wall Art and Paintings</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
+                <img src="{% static 'app/images/product/Wall Shelveing.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wall Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'PP' %}">
+                <img src="{% static 'app/images/product/Pots and Plant.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'PP' %}" class="text-decoration-none text-dark">Pots and Planters Showpieces</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'VS' %}">
+                <img src="{% static 'app/images/product/Vas.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'VS' %}" class="text-decoration-none text-dark">Vasess</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
-                <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
-            </a>
-            <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
-            </h4>
-        </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OD' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'OD' %}" class="text-decoration-none text-dark">Outdoor Decor</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WH' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WH' %}" class="text-decoration-none text-dark">Wall Hangings</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'CB' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'CB' %}" class="text-decoration-none text-dark">Collectibles</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'PF' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'PF' %}" class="text-decoration-none text-dark">Photo Frames</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'HF' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'HF' %}" class="text-decoration-none text-dark">Home Fragrances</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'JK' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'JK' %}" class="text-decoration-none text-dark">Jharokhas</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'FD' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'FD' %}" class="text-decoration-none text-dark">Festive Decor</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Home Appliances" %}
 <div class="container mt-5">
-    <h2 class="text-center">Home Appliances Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Home Appliances Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
                 <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Office furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wardrobes</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Shoe Racks</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Recliners</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Home Appliances" %}
 <div class="container mt-5">
-    <h2 class="text-center">Home Appliances Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Home Appliances Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
                 <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Office furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wardrobes</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Shoe Racks</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Recliners</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Electronics" %}
 <div class="container mt-5">
-    <h2 class="text-center">Electronics Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Electronics Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
                 <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Office furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wardrobes</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Shoe Racks</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Recliners</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Lamps/Lighting" %}
 <div class="container mt-5">
-    <h2 class="text-center">Lamps/Lighting Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Lamps/Lighting Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
                 <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'OF' %}" class="text-decoration-none text-dark">Office furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'SP' %}">
                 <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'SP' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'SF' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wardrobes</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Shoe Racks</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Recliners</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "TV/Vedio/Audio" %}
 <div class="container mt-5">
-    <h2 class="text-center">TV/Vedio/Audio Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">TV/Vedio/Audio Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
                 <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Office furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wardrobes</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Shoe Racks</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Recliners</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Air Solutions" %}
 <div class="container mt-5">
-    <h2 class="text-center">Air Solutions Collection</h2>
+    <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">Air Solutions Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
                 <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Office furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wardrobes</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Shoe Racks</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Recliners</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
     </div>
 </div>
 {% elif request.GET.category == "Computing/Mobile" %}
 <div class="container mt-5">
-    <h2 class="text-center">Computing/Mobile Collection</h2>
+    <h2 style="font-weight: bold; margin: 15px 10; text-align: center;">Computing/Mobile Collection</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'OF' %}">
                 <img src="{% static 'app/images/product/off.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Office furniture</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Office furniture</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/Poufs.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Stool&Pouffes</a>
             </h4>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <a href="{% url 'category' 'SF' %}">
                 <img src="{% static 'app/images/product/images (7).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Sofas</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Sofas</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/chair-cane.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Chairs</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Chairs</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/table.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Tables</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Tables</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/waedrobe.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Wardrobes</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Wardrobes</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/bedroom.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Beds</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Beds</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/shoe racks.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Shoe Racks</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Shoe Racks</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/sideboard drawers.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Cabinets & Sideboards</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (28).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Recliners</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Recliners</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Book Shelves</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Book Shelves</a>
             </h4>
         </div>
-        <div class="col-md-4">
-            <a href="{% url 'all_category' %}">
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WS' %}">
                 <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'all_category' %}" class="text-decoration-none text-dark">Ottomans</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">Ottomans</a>
             </h4>
         </div>
     </div>
@@ -1339,7 +1291,7 @@
         font-size: 28px;
         font-weight: bold;
         text-transform: uppercase;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         text-decoration: underline;
         color: #333; /* Dark gray */
     }
@@ -1369,6 +1321,7 @@
         margin-top: 3px; /* Space between image and text */
         font-size: 18px; /* Adjust font size */
         font-weight: bold; /* Make text bold */
+        text-align: center;
         color: #333; /* Dark grey color */
         transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out; 
     }
@@ -1389,8 +1342,8 @@
         margin-bottom: 30px; 
     }
     .container .row img {
-        margin-top: 20px;
-        width: 200px; /* Set a fixed width */
+        margin-top: 10px;
+        width: 250px; /* Set a fixed width */
         height: 180px; /* Set a fixed height */
         object-fit: cover; /* Ensures images fill the space while maintaining aspect ratio */
         border-radius: 20px; /* Optional: adds rounded corners */

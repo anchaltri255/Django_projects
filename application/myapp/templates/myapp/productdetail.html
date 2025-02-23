@@ -24,7 +24,8 @@
                 </div>
 
                 <!-- Add to Cart Button -->
-                <button type="button" class="btn btn-primary shadow px-4 py-2" id="add-to-cart-btn" data-product-id="{{product.id}}">
+                <!-- Button Instead of Form -->
+                <button id="add-to-cart-btn" class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
                     Add to Cart
                 </button>
 
@@ -42,42 +43,55 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
             const addToCartBtn = document.getElementById("add-to-cart-btn");
             const messageBox = document.getElementById("message-box");
-
-            addToCartBtn.addEventListener("click", () => {
-                const productId = addToCartBtn.getAttribute("data-product-id");
-
-                fetch("{% url 'add_to_cart' %}", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRFToken": csrfToken
-                    },
-                    body: JSON.stringify({ prod_id: productId })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.message) {
+        
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener("click", (event) => {
+                    event.preventDefault();  // Prevent form submission
+        
+                    const productId = addToCartBtn.getAttribute("data-product-id");
+                    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        
+                    console.log("Clicked Add to Cart. Sending Product ID:", productId);  // Debugging log
+        
+                    if (!productId) {
+                        alert("Error: No product ID found.");
+                        return;
+                    }
+        
+                    fetch("{% url 'add_to_cart' %}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                            "X-CSRFToken": csrfToken
+                        },
+                        body: `prod_id=${productId}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Server Response:", data);  // Debugging log
+        
                         messageBox.style.display = "block";
-                        messageBox.textContent = data.message;
-                        messageBox.classList.remove("alert-danger");
-                        messageBox.classList.add("alert-success");
-                    } else if (data.error) {
+                        messageBox.textContent = data.message || data.error;
+        
+                        if (data.error) {
+                            messageBox.classList.remove("alert-success");
+                            messageBox.classList.add("alert-danger");
+                        } else {
+                            messageBox.classList.remove("alert-danger");
+                            messageBox.classList.add("alert-success");
+                        }
+                    })
+                    .catch(error => {
                         messageBox.style.display = "block";
-                        messageBox.textContent = data.error;
+                        messageBox.textContent = "An error occurred. Please try again.";
                         messageBox.classList.remove("alert-success");
                         messageBox.classList.add("alert-danger");
-                    }
-                })
-                .catch(error => {
-                    messageBox.style.display = "block";
-                    messageBox.textContent = "An error occurred. Please try again.";
-                    messageBox.classList.remove("alert-success");
-                    messageBox.classList.add("alert-danger");
+                    });
                 });
-            });
+            }
         });
-    </script>
+        </script>
+        
 {% endblock main-content %}

@@ -59,11 +59,43 @@
                             <span id="totalamount"><strong>Rs. {{ totalamount }}</strong></span>
                         </li>
                     </ul>
-                    <div class="d-grid">
-                        <form method="POST" action="{% url 'showcart' %}" class="d-inline">
-                            {% csrf_token %}
-                            <button id="place-order" class="btn btn-primary">Place Orders</button>
-                        </form>
+                    <!-- Place Order Button - Opens the Payment Modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+                        Place Order
+                    </button>
+                </div>
+                <!-- Payment Selection Modal -->
+                <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="paymentModalLabel">Select Payment Method</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="paymentForm">
+                                    {% csrf_token %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method" value="credit_card" id="credit_card" required>
+                                        <label class="form-check-label" for="credit_card">Credit/Debit Card</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method" value="paypal" id="paypal">
+                                        <label class="form-check-label" for="paypal">PayPal</label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method" value="cod" id="cod">
+                                        <label class="form-check-label" for="cod">Cash on Delivery</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-success" id="confirmPayment">Confirm Payment</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -184,4 +216,68 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("Error:", error));
     });
     </script>
+<script>
+    document.getElementById("confirmPayment").addEventListener("click", function () {
+        let paymentMethod = document.querySelector('input[name="payment_method"]:checked');
+        let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    
+        if (!paymentMethod) {
+            alert("Please select a payment method.");
+            return;
+        }
+    
+        fetch("{% url 'process_payment' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": csrfToken
+            },
+            body: `payment_method=${paymentMethod.value}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("Order placed successfully!");
+                window.location.href = "{% url 'orders' %}"; // Redirect to orders page
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+    </script>
+<script>
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        let productId = this.getAttribute("data-product-id");
+        let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        console.log("🛑 Add to Cart Clicked. Product ID:", productId); // Debugging
+
+        if (!productId) {
+            alert("⚠️ Error: Product ID is missing.");
+            return;
+        }
+
+        fetch("{% url 'add_to_cart' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": csrfToken
+            },
+            body: `prod_id=${productId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("✅ Server Response:", data);  // Debug Log
+            alert(data.message || data.error);
+        })
+        .catch(error => console.error("🚨 Fetch Error:", error));
+    });
+});
+
+    </script>
+       
 {% endblock main-content %}

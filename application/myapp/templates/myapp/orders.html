@@ -14,9 +14,10 @@
                             <h5 class="card-title">Order ID: {{ order.id }}</h5>
                             <p><strong>Order Date:</strong> {{ order.created_at }}</p>
                             <p><strong>Total Amount:</strong> Rs. {{ order.total_amount }}</p>
+                            <p><strong>Payment Method:</strong> {{ order.payment_method|default:"Not Selected" }}</p>
                             <h6>Products:</h6>
-
-                            {% for item in order.orderitem_set.all %}
+                        
+                            {% for item in order.order_items.all %}
                                 <div class="d-flex align-items-center border-bottom pb-2 mb-2">
                                     <img src="{{ item.product.product_image.url }}" alt="{{ item.product.name }}" 
                                          class="img-thumbnail me-3" style="width: 80px; height: 80px;">
@@ -27,9 +28,13 @@
                                     </div>
                                 </div>
                             {% endfor %}
-                            
+                        
                             <span class="badge bg-success">Order Confirmed</span>
-                        </div>
+                        
+                            <!-- Cancel Order Button -->
+                            <button class="btn btn-danger cancel-order" data-order-id="{{ order.id }}">Cancel Order</button>
+                            <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                        </div>        
                     </div>
                 </div>
             {% endfor %}
@@ -38,4 +43,51 @@
         <h4 class="text-center mt-4">No Orders Found</h4>
     {% endif %}
 </div>
+<script>
+    document.querySelectorAll(".cancel-order").forEach(button => {
+        button.addEventListener("click", function () {
+            let orderId = this.getAttribute("data-order-id");
+            let csrfToken = document.getElementById("csrf_token").value;  // ✅ Get CSRF Token
+    
+            console.log("🛑 Cancel Order Clicked. Order ID:", orderId); // Debug Log
+    
+            if (!orderId) {
+                alert("⚠️ Error: Order ID is missing.");
+                return;
+            }
+    
+            if (!csrfToken) {
+                alert("⚠️ Error: CSRF token is missing.");
+                return;
+            }
+    
+            if (!confirm("Are you sure you want to cancel this order?")) {
+                return;
+            }
+    
+            fetch("{% url 'delete_order' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": csrfToken
+                },
+                body: `order_id=${orderId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("✅ Server Response:", data);  // Debug Log
+                if (data.status === "success") {
+                    alert("✅ Order canceled successfully!");
+                    location.reload();  // Refresh the page
+                } else {
+                    alert("⚠️ Error: " + data.message);
+                }
+            })
+            .catch(error => console.error("🚨 Fetch Error:", error));
+        });
+    });
+    </script>
+    
+    
+    
 {% endblock main-content %}
