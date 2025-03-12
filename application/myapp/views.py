@@ -13,7 +13,7 @@ from django.db.models import Q
 import json
 from .models import Order, OrderItem  # Ensure these models exist or create them
 from django.contrib.auth.decorators import login_required
-from .models import Order, Cart
+from .models import Order, Cart, Wishlist, Product
 
 # Create your views here.
 
@@ -169,6 +169,24 @@ def add_to_cart(request):
             return JsonResponse({"error": "Product does not exist."}, status=404)
 
     return JsonResponse({"error": "Invalid request method."}, status=400)
+
+def add_to_wishlist(request):
+    if request.method == "POST":
+        prod_id = request.POST.get('prod_id')
+        product = Product.objects.get(id=prod_id)
+        
+        # Ensure wishlist entry is unique
+        wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
+
+        if created:
+            return JsonResponse({"success": True})  # Product added
+        else:
+            return JsonResponse({"error": "Product already in wishlist."})
+    return JsonResponse({"error": "Invalid request."})
+
+def wishlist_view(request):
+    wishlist_items = Wishlist.objects.filter(user=request.user)
+    return render(request, 'myapp/wishlist.html', {'wishlist_items': wishlist_items})
 
 def show_cart(request):
     if request.method == "POST":

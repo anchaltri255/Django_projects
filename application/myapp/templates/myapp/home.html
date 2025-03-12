@@ -145,6 +145,79 @@
     </div>
 </div>
 
+<!-- About Us Section -->
+<div class="container mt-5 about-section">
+    <h1 class="text-center mb-3">About Us</h1>
+    <p class="description">Welcome to our shop – your one-stop shop for premium furniture and cutting-edge electronics. We are committed to providing exceptional customer service, fast and secure shipping, and a seamless online shopping experience. Thank you for choosing us to help you create the perfect space!</p>
+</div>
+
+<!-- Mission Section -->
+<div class="container mt-3 mission-section">
+    <h1 class="text-center mb-3">Our Mission</h1>
+    <p class="description">Our mission is simple: to provide our customers with high-quality furniture and electronics that enhance their homes and lives. We strive to deliver an exceptional shopping experience through personalized customer service and a carefully curated selection of products.</p>
+</div>
+
+<!-- Contact Us Section -->
+<div class="container mt-3 contact-section">
+    <h1 class="text-center mb-3">Contact Us</h1>
+    <p class="text-center">Have questions or need assistance? We're here to help!</p>
+    <div class="text-center">
+        <p><strong>Email:</strong> <a href="mailto:support@ourshop.com">support@ourshop.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p><strong>Address:</strong> 123 Home Street, Furniture City, FC 56789</p>
+        <div class="mt-3">
+            <a href="mailto:support@ourshop.com" class="btn btn-primary mx-2">Email Us</a>
+            <a href="tel:+1234567890" class="btn btn-primary mx-2">Call Us</a>
+            <a href="https://wa.me/1234567890" target="_blank" class="btn btn-success mx-2">WhatsApp</a>
+        </div>
+    </div>
+</div>
+<br><br>
+<!-- Footer Section (Amazon-style) -->
+<footer class="footer-section mt-2">
+    <div class="footer-back-to-top text-center py-3">
+        <a href="#" class="text-white">Back to top</a>
+    </div>
+
+    <div class="footer-links-container">
+        <div class="footer-links">
+            <h5>Get to Know Us</h5>
+            <ul>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press Releases</a></li>
+                <li><a href="#">Our Policies</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h5>Connect with Us</h5>
+            <ul>
+                <li><a href="https://www.facebook.com/">Facebook</a></li>
+                <li><a href="https://www.instagram.com/">Instagram</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h5>Make Money with Us</h5>
+            <ul>
+                <li><a href="#">Sell on Our Platform</a></li>
+                <li><a href="#">Affiliate Program</a></li>
+                <li><a href="#">Advertise Your Products</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h5>Let Us Help You</h5>
+            <ul>
+                <li><a href="{% url 'profile' %}">Your Account</a></li>
+                <li><a href="#">Returns Centre</a></li>
+                <li><a href="#">Customer Service</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-logo text-center py-4">
+        <img src="{% static 'app/images/product/logo.png' %}" alt="Logo" class="footer-logo-img">
+    </div>
+</footer>
+
 <style>
 .carousel-caption {
     background: rgba(0, 0, 0, 0.5);
@@ -175,8 +248,8 @@
     text-align: center; 
     font-size: 2.5rem;  /* Adjust size if needed */
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 20px; 
+    margin-top: 20px;
+    margin-bottom: 40px; 
 }
 .container .row {
     justify-content: center; /* Ensures images are centered */
@@ -188,13 +261,13 @@ img {
     height: auto;
 }
 .container .row img {
-    margin-top: 15px;
+    margin-top: 30px;
     width: 400px; /* Set a fixed width */
     height: 250px; /* Set a fixed height */
     object-fit: cover; /* Ensures images fill the space while maintaining aspect ratio */
     border-radius: 20px; /* Optional: adds rounded corners */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Optional: adds shadow */
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     transition: transform 0.3s ease-in-out; /* Smooth transition effect */
 }
 .container .row img:hover {
@@ -223,8 +296,112 @@ img {
     color: #ff6600 !important; /* Force color change */
     text-decoration: underline;
 }
+/* Section Background Colors (inspired by Amazon-style layout) */
+.about-section {
+    background-color: rgb(79, 84, 84);
+    color: white;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 10px;
+}
 
+.mission-section {
+    background-color: rgb(93, 96, 96);
+    color: white;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.contact-section {
+    background-color: rgb(123, 126, 126);
+    color: white;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.description {
+    font-size: 1rem; /* Adjust font size */
+    font-family: 'Arial', sans-serif; /* Change font style */
+    font-weight: 300; /* Normal weight (not bold) */
+    line-height: 1.6; /* Improve line spacing */
+    text-align: center; /* Center the text */
+}
+.footer-section {
+    background-color: #232f3e;
+    color: #ffffff;
+}
+.footer-back-to-top a {
+    text-decoration: none;
+    color: #ffffff;
+}
+.footer-links-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0;
+}
+.footer-links h5 {
+    margin-bottom: 15px;
+}
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-links ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+.footer-logo-img {
+    max-height: 50px;
+}
+.back-to-top {
+    background-color: rgb(79, 84, 84);
+    margin-top: 3rem;
+}
+.back-to-top-btn {
+    background-color: rgb(79, 84, 84);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+.back-to-top-btn:hover {
+    background-color: #0d0d0e;
+}
+/* Change Email Us Button Color */
+a[href^="mailto:"] {
+    color: white; /* Text color */
+    border: none;
+}
+a[href^="mailto:"]:hover {
+    background-color: #C70039; /* Darker Red on Hover */
+}
 
+/* Change Call Us Button Color */
+a[href^="tel:"] {
+    color: white; /* Text color */
+    border: none;
+}
+a[href^="tel:"]:hover {
+    background-color: #0056b3; /* Darker Blue on Hover */
+}
+
+/* Change WhatsApp Button Color */
+a[href*="wa.me"] {
+    
+    color: white; /* Text color */
+    border: none;
+}
+a[href*="wa.me"]:hover {
+    background-color: #128C7E; /* Darker Green on Hover */
+}
 </style>
 {% endblock banner-slider %}
 

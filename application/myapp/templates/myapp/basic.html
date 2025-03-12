@@ -148,7 +148,7 @@
           transform: scale(1.1); /* Slight zoom effect on hover */
       }
       .goodnessseccont .fw-bold {
-        font-size: 12px; /* Adjust the size as needed */
+        font-size: 10px; /* Adjust the size as needed */
         font-weight: bold; /* Ensures bold text */
         color: #333; /* Optional: Adjust color */
       }
@@ -158,7 +158,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
           <li class="nav-item mx-1">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'app/images/product/logo.png' %}" width="130" height="40"/>
           </a>
           </li>
@@ -183,8 +183,8 @@
                 aria-expanded="false"><i class="fas fa-user"></i> Welcome {{ user.username }}</a>
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                   <li><a href="{% url 'profile' %}" class="dropdown-item"><i class="fas fa-user-circle"></i> Profile</a></li>
-                    <li><a href="#" class="dropdown-item"><i class="fas fa-box"></i> Orders</a></li>
-                    <li><a href="#" class="dropdown-item"><i class="fas fa-heart"></i> Wishlist</a></li>
+                    <li><a href="{% url 'orders' %}" class="dropdown-item"><i class="fas fa-box"></i> Orders</a></li>
+                    <li><a href="{% url 'add_to_wishlist' %}" class="dropdown-item"><i class="fas fa-heart"></i> Wishlist</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fas fa-credit-card"></i> Gift Cards</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fas fa-gift"></i> Rewards</a></li>
                     <li><a class="dropdown-item" href="{% url 'passwordchange' %}"><i class="fas fa-key me-2"></i>Change Password</a></li>
@@ -195,7 +195,7 @@
                 <a href="{% url 'showcart' %}" class="nav-link text-white"><i class="fas fa-shopping-cart"></i> Cart</a>
               </li>
               <li class="nav-item mx-3">
-                <a href="#" class="nav-link text-white"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="{% url 'add_to_wishlist' %}" class="nav-link text-white"><i class="fas fa-heart"></i> Wishlist</a>
               </li>
               <li class="nav-item mx-3">
                 <a href="/logout/" class="nav-link text-white"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
@@ -232,8 +232,8 @@
                       </a><hr>
                     </li>
                     <li><a href="{% url 'profile' %}" class="dropdown-item"><i class="fas fa-user-circle"></i> Profile</a></li>
-                    <li><a href="#" class="dropdown-item"><i class="fas fa-box"></i> Orders</a></li>
-                    <li><a href="#" class="dropdown-item"><i class="fas fa-heart"></i> Wishlist</a></li>
+                    <li><a href="{% url 'orders' %}" class="dropdown-item"><i class="fas fa-box"></i> Orders</a></li>
+                    <li><a href="{% url 'add_to_wishlist' %}" class="dropdown-item"><i class="fas fa-heart"></i> Wishlist</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fas fa-credit-card"></i> Gift Cards</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fas fa-gift"></i> Rewards</a></li>
                   </ul>
@@ -258,9 +258,8 @@
       <div class="collapse navbar-collapse" id="productNavbar">
           <ul class="navbar-nav me-auto">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'FN' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Furniture
+                <a class="nav-link" href="{% url 'all_category' %}?category=Furniture" id="furnitureLink">
+                  Furniture
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'category' 'OF' %}">Office furniture</a></li>
@@ -273,56 +272,53 @@
                     <li><a class="dropdown-item" href="{% url 'category' 'SR' %}">Shoe Racks</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'CS' %}">Cabinets & Sideboards</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'RC' %}">Recliners</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'FN' %}">Book Shelves</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Ottomans</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'BS' %}">Book Shelves</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OT' %}">Ottomans</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'SF' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link" href="{% url 'all_category' %}?category=Sofas/Seating" id="sofasseatingLink">
                     Sofas/Seating
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Sofas</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Sectional Sofas</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Sofa Cum Beds</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'RC' %}">Recliner Sets</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Futons</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Chaise Loungers</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Sofa Chairs</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Settees & Benches</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Ottomans</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Office Chairs</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Gaming Chairs</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'SF' %}">Outdoor Seating</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'SS' %}">Sectional Sofas</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'SU' %}">Sofa Cum Beds</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'RS' %}">Recliner Sets</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'FT' %}">Futons</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'CL' %}">Chaise Loungers</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'SC' %}">Sofa Chairs</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'SB' %}">Settees & Benches</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OT' %}">Ottomans</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OC' %}">Office Chairs</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'GC' %}">Gaming Chairs</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OS' %}">Outdoor Seating</a></li>
                     
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'KD' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Kitchen/Dining" id="kitchendiningLink">
                     Kitchen/Dining
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Dining Tables</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Dining Benches</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Bar Furniture</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Dining Chairs</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Crockery Units</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Dining Table Sets</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Serving Trolley</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'KD' %}">Barware</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'DT' %}">Dining Tables</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'DB' %}">Dining Benches</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'BF' %}">Bar Furniture</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'DC' %}">Dining Chairs</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'CU' %}">Crockery Units</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'DT' %}">Dining Table Sets</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'ST' %}">Serving Trolley</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'BW' %}">Barware</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'LB' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Living/Bedroom" id="livingbedroomLink">
                     Living/Bedroom
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'category' 'BE' %}">Beds</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LB' %}">Mattresses</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LB' %}">Ottomans</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MT' %}">Mattresses</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OT' %}">Ottomans</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'CH' %}">Chairs</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'TB' %}">Tables</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'WD' %}">Wardrobes</a></li>
@@ -331,13 +327,12 @@
                     <li><a class="dropdown-item" href="{% url 'category' 'WS' %}">Wall Shelves</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'BS' %}">Bed Side Tables</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'SD' %}">Study Desk</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'OC' %}">Occasional Chairs</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OH' %}">Occasional Chairs</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'BC' %}">Book Case & Cabinates</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'SF' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Outdoor Living" id="outdoorlivingLink">
                     Outdoor Living
                 </a>
                 <ul class="dropdown-menu">
@@ -351,15 +346,14 @@
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'HD' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Home Decor" id="homedecorLink">
                     Home Decor
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'category' 'ST' %}">Spiritual</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'WC' %}">Wall Decor</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'DM' %}">Mirrors</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'ST' %}">Wall Art and Paintings</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'WP' %}">Wall Art and Paintings</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'WS' %}">Wall Shelves</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'PP' %}">Pots and Planters Showpieces</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'VS' %}">Vases</a></li>
@@ -373,97 +367,89 @@
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'HA' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Home Appliances" id="homeappliancesLink">
                     Home Appliances
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Dishwasher</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Refrigerators</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Water Purifiers</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Microwave Ovens</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Laundry</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Mixer</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Electric Iron</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HA' %}">Indection</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'DW' %}">Dishwasher</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'RG' %}">Refrigerators</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'RG' %}">WaterGeyser</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'WP' %}">Water Purifiers</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MO' %}">Microwave Ovens</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'LN' %}">Laundry</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MX' %}">Mixer</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'EI' %}">Electric Iron</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'IN' %}">Indection</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'EL' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Electronics" id="electronicsLinks">
                     Electronics
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">Washing Machines</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">Refrigerators</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">Microwave Ovens</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">Water Purifiers</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">TVs</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">Air Purifiers</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">Air Conditioners</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'WM' %}">Washing Machines</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'RG' %}">Refrigerators</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MO' %}">Microwave Ovens</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'WP' %}">Water Purifiers</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">TVs</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'AP' %}">Air Purifiers</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'AC' %}">Air Conditioners</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'LL' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Lamps/Lighting" id="lampslightingLink">
                     Lamps/Lighting
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Floor Lamps</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Table Lamps</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Ceiling Lights</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Night Lamps</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Wall Lights</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Shelf Floor Lamps</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Induction Cooktops</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Lamp Shades</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Work and Study Lamps</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Outdoor Lights</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Decorative Lights</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Smart Lights</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Bulbs</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Emergency Lights</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LL' %}">Kids Lamps</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'FL' %}">Floor Lamps</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'TL' %}">Table Lamps</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'CL' %}">Ceiling Lights</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'NL' %}">Night Lamps</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'WL' %}">Wall Lights</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'LS' %}">Lamp Shades</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'WSL' %}">Work and Study Lamps</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'OL' %}">Outdoor Lights</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'DL' %}">Decorative Lights</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'BU' %}">Bulbs</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'EL' %}">Emergency Lights</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'KL' %}">Kids Lamps</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'TV' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    TV/Vedio/Audio
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=TV/Vedio/Audio" id="tvvedioaudioLink">
+                  TV/Vedio/Audio
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">TV & Soundbars</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">webOS for Smart TV</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'TVS' %}">TV & Soundbars</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'STV' %}">webOS for Smart TV</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">TV by Size</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">Lifestyle Screens</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">Audio</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">Projectors</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'LS' %}">Lifestyle Screens</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'AU' %}">Audio</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'PJ' %}">Projectors</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'AS' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Air Solutions" id="airsolutionsLink">
                     Air Solutions
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'AS' %}">Air Conditioners</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'AS' %}">Air Care</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'AS' %}">Cooler</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'AS' %}">Fan</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'AS' %}">Table Fan</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'AC' %}">Air Conditioners</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'AP' %}">Air Care</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'CO' %}">Cooler</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'FA' %}">Fan</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'TF' %}">Table Fan</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'category' 'CM' %}" id="moreProductsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{% url 'all_category' %}?category=Computing/Mobile" id="computingmobileLink">
                     Computing/Mobile
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'CM' %}">Mobile</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'CM' %}">Moniters</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'CM' %}">Laptop</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'CM' %}">Keyboard</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'CM' %}">Mouse</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MB' %}">Mobile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MN' %}">Moniters</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'LP' %}">Laptop</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'KB' %}">Keyboard</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MO' %}">Mouse</a></li>
                 </ul>
               </li> 
           </ul>
