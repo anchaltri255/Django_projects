@@ -61,24 +61,24 @@ CATEGORY_CHOICES=(
     ('DM','Dresser Mirrors'),
     ('CD','Chest of Drawers'),
     ('WS','Wall Shelves'),
-    ('BS','Bed Side Tables'),
+    ('BT','Bed Side Tables'),
     ('SD','Study Desk'),
     ('OH','Occasional Chairs'),
-    ('BC','Book Case & Cabinates'),
+    ('BS','Book Case & Cabinates'),
     ('BH','Benches'),
     ('OD','Outdoor Dining Sets'),
     ('GF','Garden Furniture Sets'),
     ('OB','Outdoor Storage Boxe'),
     ('OK','Outdoor Kitchens & Bars'),
     ('AH','Adirondack Chairs'),
-    ('ST','Spiritual'),
+    ('SI','Spiritual'),
     ('WC','Wall Decor'),
     ('DM','Mirrors'),
     ('WP','Wall Art and Paintings'),
     ('WS','Wall Shelves'),
     ('PP','Pots and Planters Showpieces'),
     ('VS','Vases'),
-    ('OD','Outdoor Decor'),
+    ('OE','Outdoor Decor'),
     ('WH','Wall Hangings'),
     ('CB','Collectibles'),
     ('PF','Photo Frames'),
@@ -99,7 +99,7 @@ CATEGORY_CHOICES=(
     ('AC','Air Conditioners'),
     ('FL','Floor Lamps'),
     ('TL','Table Lamps'),
-    ('CL','Ceiling Lights'),
+    ('CG','Ceiling Lights'),
     ('NL','Night Lamps'),
     ('WL','Wall Lights'),
     ('LS','Lamp Shades'),
@@ -156,6 +156,13 @@ class Cart(models.Model):
     def total_cost(self):
         return self.quantity * self.product.discounted_price
 
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'product')  # Prevent duplicate entries
+        
 class Order(models.Model):
     PAYMENT_CHOICES = [
         ("credit_card", "Credit Card"),

@@ -14,6 +14,8 @@ import json
 from .models import Order, OrderItem  # Ensure these models exist or create them
 from django.contrib.auth.decorators import login_required
 from .models import Order, Cart, Wishlist, Product
+import logging
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 
@@ -172,21 +174,24 @@ def add_to_cart(request):
 
 def add_to_wishlist(request):
     if request.method == "POST":
-        prod_id = request.POST.get('prod_id')
-        product = Product.objects.get(id=prod_id)
-        
-        # Ensure wishlist entry is unique
-        wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
+        product_id = request.POST.get('prod_id')
+        if not product_id:
+            return JsonResponse({'error': 'Invalid product ID'}, status=400)
 
-        if created:
-            return JsonResponse({"success": True})  # Product added
-        else:
-            return JsonResponse({"error": "Product already in wishlist."})
-    return JsonResponse({"error": "Invalid request."})
+        product = Product.objects.filter(id=product_id).first()
+        if not product:
+            return JsonResponse({'error': 'Product not found'}, status=404)
+
+        wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
+        if not created:
+            return JsonResponse({'message': 'Product already in wishlist', 'success': True})
+
+        return JsonResponse({'message': ' Product added to wishlist', 'success': True})
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)
 
 def wishlist_view(request):
-    wishlist_items = Wishlist.objects.filter(user=request.user)
-    return render(request, 'myapp/wishlist.html', {'wishlist_items': wishlist_items})
+    return JsonResponse({"message": "Wishlist endpoint is working"})
 
 def show_cart(request):
     if request.method == "POST":

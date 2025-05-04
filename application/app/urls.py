@@ -34,6 +34,7 @@ urlpatterns = [
     path('address/',address,name="address"),
     path('addtocart/',add_to_cart,name='add_to_cart'),
     path('add-to-wishlist/', add_to_wishlist, name='add_to_wishlist'),
+    path('wishlist/', wishlist_view, name='wishlist'),
     path('cart/',show_cart,name='showcart'),
     path('checkout/',checkout.as_view(),name='checkout'),
     path('remove_from_cart/',remove_from_cart, name='remove_from_cart'),
