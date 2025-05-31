@@ -33,13 +33,13 @@ urlpatterns = [
     path('logout/', logout_page, name="logout_page"),
     path('address/',address,name="address"),
     path('addtocart/',add_to_cart,name='add_to_cart'),
-    path('add-to-wishlist/', add_to_wishlist, name='add_to_wishlist'),
-    path('wishlist/', wishlist_view, name='wishlist'),
+    path("wishlist/", show_wishlist, name="wishlist"),
+    path("add-to-wishlist/", add_to_wishlist, name="add_to_wishlist"),
+    path('remove_from_wishlist/', remove_from_wishlist, name='remove_from_wishlist'),
     path('cart/',show_cart,name='showcart'),
     path('checkout/',checkout.as_view(),name='checkout'),
     path('remove_from_cart/',remove_from_cart, name='remove_from_cart'),
     path('orders/', orders, name='orders'),
-    path('search/',search_view, name='search'),
     path('update_cart_quantity/',update_cart_quantity, name='update_cart_quantity'),
     path('all_category/',all_category,name="all_category"),
     path('profile/',ProfileView.as_view(),name="profile"),
@@ -53,7 +53,7 @@ urlpatterns = [
     path("payment/", payment_view, name="payment"),
     path("process_payment/", process_payment, name="process_payment"),
     path("delete_order/", delete_order, name="delete_order"),
-
+    path('search/', search, name='search'),
     
     path('passwordchange/',auth_view.PasswordChangeView.as_view(template_name=
     'myapp/changepassword.html',form_class=MyPasswordChangeForm, success_url=

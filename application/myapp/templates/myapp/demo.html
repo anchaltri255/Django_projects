@@ -1,3 +1,4 @@
+
 {% extends "myapp/basic.html" %}
 {% load static %}
 {% block title %}all category{% endblock title %}
@@ -510,12 +511,62 @@
                 <a href="{% url 'category' 'VS' %}" class="text-decoration-none text-dark">Vasess</a>
             </h4>
         </div>
-        
-        
-        
-        
-        
-        
+        <div class="col-md-2">
+            <a href="{% url 'category' 'OE' %}">
+                <img src="{% static 'app/images/outdoor de.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'OE' %}" class="text-decoration-none text-dark">Outdoor Decor</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WH' %}">
+                <img src="{% static 'app/images/product/download (21).jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'WH' %}" class="text-decoration-none text-dark">Wall Hangings</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'CB' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'CB' %}" class="text-decoration-none text-dark">Collectibles</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'PF' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'PF' %}" class="text-decoration-none text-dark">Photo Frames</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'HF' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'HF' %}" class="text-decoration-none text-dark">Home Fragrances</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'JK' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'JK' %}" class="text-decoration-none text-dark">Jharokhas</a>
+            </h4>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'category' 'FD' %}">
+                <img src="{% static 'app/images/product/ottoman.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'FD' %}" class="text-decoration-none text-dark">Festive Decor</a>
+            </h4>
+        </div>
     </div>
 </div>
 
@@ -531,7 +582,14 @@
                 <a href="{% url 'category' 'DW' %}" class="text-decoration-none text-dark">Dishwasher</a>
             </h4>
         </div>
-        
+        <div class="col-md-2">
+            <a href="{% url 'category' 'WG' %}">
+                <img src="{% static 'app/images/product/WaterGeyser.jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
+            </a>
+            <h4 class="product-name">
+                <a href="{% url 'category' 'WG' %}" class="text-decoration-none text-dark">WaterGeyser</a>
+            </h4>
+        </div>
         <div class="col-md-2">
             <a href="{% url 'category' 'RG' %}">
                 <img src="{% static 'app/images/product/fridge double door.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 2">
@@ -557,11 +615,11 @@
             </h4>
         </div>
         <div class="col-md-2">
-            <a href="{% url 'category' 'WM' %}">
+            <a href="{% url 'category' 'LN' %}">
                 <img src="{% static 'app/images/product/washing machine.jpg' %}" class="img-fluid rounded shadow product-img" alt="Image 3">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'category' 'WM' %}" class="text-decoration-none text-dark">Laundry</a>
+                <a href="{% url 'category' 'LN' %}" class="text-decoration-none text-dark">Laundry</a>
             </h4>
         </div>
         <div class="col-md-2">
@@ -762,11 +820,11 @@
     <h2 h2 style="font-weight: bold; margin: 20px 0; text-align: center;">TV/Vedio/Audio Collection</h2>
     <div class="row">
         <div class="col-md-2">
-            <a href="{% url 'category' 'TV' %}">
+            <a href="{% url 'category' 'TVS' %}">
                 <img src="{% static 'app/images/product/Smart TV (2).jpg' %}" class="img-fluid rounded shadow product-img " alt="Image 1">
             </a>
             <h4 class="product-name">
-                <a href="{% url 'category' 'TV' %}" class="text-decoration-none text-dark">TV & Soundbars</a>
+                <a href="{% url 'category' 'WS' %}" class="text-decoration-none text-dark">TV & Soundbars</a>
             </h4>
         </div>
         <div class="col-md-2">
@@ -966,3 +1024,20 @@
     }
 </style>
 {% endblock main-content %}
+
+<ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'category' 'SI' %}">Spiritual</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'WC' %}">Wall Decor</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'DM' %}">Mirrors</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'WP' %}">Wall Art and Paintings</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'WS' %}">Wall Shelves</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'PP' %}">Pots and Planters Showpieces</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'VS' %}">Vases</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'OE' %}">Outdoor Decor</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'WH' %}">Wall Hangings</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'CB' %}">Collectibles</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'PF' %}">Photo Frames</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'HF' %}">Home Fragrances</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'JK' %}">Jharokhas</a></li>
+    <li><a class="dropdown-item" href="{% url 'category' 'FD' %}">Festive Decor</a></li>
+</ul>

@@ -65,8 +65,9 @@
                 messageBox.textContent = data.message || data.error;
                 messageBox.className = data.error ? "alert alert-danger" : "alert alert-success";
 
+                // Redirect to wishlist on success
                 if (data.success && url.includes('add_to_wishlist')) {
-                    setTimeout(() => window.location.href = "{% url 'add_to_wishlist' %}", 2000);
+                    setTimeout(() => window.location.href = "{% url 'wishlist' %}", 2000);
                 }
 
                 setTimeout(() => { messageBox.style.display = "none"; }, 3000);
@@ -97,5 +98,6 @@
         }
     });
 </script>
+
 
 {% endblock main-content %}

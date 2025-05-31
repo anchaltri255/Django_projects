@@ -88,7 +88,7 @@ CATEGORY_CHOICES=(
     ('DW','Dishwasher'),
     ('RG','Refrigerators'),
     ('WP','Water Purifiers'),
-    ('MO','Microwave Ovens'),
+    ('MV','Microwave Ovens'),
     ('LN','Laundry'),
     ('MX','Mixer'),
     ('EI','Electric Iron'),
@@ -160,8 +160,8 @@ class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
-    class Meta:
-        unique_together = ('user', 'product')  # Prevent duplicate entries
+    def __str__(self):
+        return f"{self.user.username} - {self.product.title}"
         
 class Order(models.Model):
     PAYMENT_CHOICES = [
@@ -185,4 +185,4 @@ class OrderItem(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"{self.quantity} x {self.product.name} (Order {self.order.id})"
+        return f"{self.quantity} x {self.product.title} (Order {self.order.id})"

@@ -1,0 +1,98 @@
+{% extends "myapp/basic.html" %}
+{% load static %}
+
+{% block title %}My Wishlist{% endblock title %}
+
+{% block main-content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">💖 My Wishlist</h1>
+
+    {% if wishlist_items %}
+        <div class="row g-4">
+            {% for item in wishlist_items %}
+                <div class="col-md-4">
+                    <div class="card shadow-lg h-100">
+                        <img src="{{ item.product.product_image.url }}" class="card-img-top" alt="{{ item.product.title }}" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ item.product.title|default:"No title available" }}
+                            </h5>
+                            <p class="card-text text-danger">
+                                Rs. {{ item.product.discounted_price|default:"0" }}/-
+                            </p>
+                            <p class="text-muted text-decoration-line-through">
+                                Rs. {{ item.product.selling_price|default:"0" }}/-
+                            </p>
+
+                            <button class="btn btn-primary add-to-cart-btn" data-product-id="{{ item.product.id }}">
+                                🛒 Add to Cart
+                            </button>
+                            <button class="btn btn-outline-danger remove-from-wishlist-btn mt-2" data-product-id="{{ item.product.id }}">
+                                ❌ Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">Your wishlist is empty. Start adding your favorite products! 💝</p>
+    {% endif %}
+</div>
+
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const productId = this.dataset.productId;
+            fetch("{% url 'add_to_cart' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": csrftoken
+                },
+                body: `prod_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message));
+        });
+    });
+
+    document.querySelectorAll(".remove-from-wishlist-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const productId = this.dataset.productId;
+            fetch("{% url 'remove_from_wishlist' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": csrftoken
+                },
+                body: `prod_id=${productId}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.status === "success") {
+                    this.closest('.col-md-4').remove();
+                }
+            });
+        });
+    });
+</script>
+{% endblock main-content %}

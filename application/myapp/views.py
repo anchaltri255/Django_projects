@@ -147,51 +147,41 @@ def register(request):
 
 @login_required
 def add_to_cart(request):
-    if request.method == "POST":
-        product_id = request.POST.get("prod_id")
-        print("📩 Received Add to Cart Request. Product ID:", product_id)  # Debugging Log
-
-        if not product_id:
-            return JsonResponse({"error": "No product ID provided."}, status=400)
-
+    if request.method == 'POST':
+        prod_id = request.POST.get('prod_id')
         try:
-            product = Product.objects.get(id=product_id)
-
-            # ✅ Check if the product already exists in the cart
-            cart_item, created = Cart.objects.get_or_create(user=request.user, product=product)
-
-            if not created:
-                cart_item.quantity += 1  # Increase quantity instead of adding a new item
-                cart_item.save()
-
-            print("✅ Product added to cart successfully!")  # Debugging Log
-            return JsonResponse({"message": "Product added to cart!"}, status=200)
-
+            product = Product.objects.get(id=prod_id)
+            Cart.objects.get_or_create(user=request.user, product=product)
+            return JsonResponse({'message': 'Product added to cart ✅'})
         except Product.DoesNotExist:
-            return JsonResponse({"error": "Product does not exist."}, status=404)
-
-    return JsonResponse({"error": "Invalid request method."}, status=400)
-
-def add_to_wishlist(request):
-    if request.method == "POST":
-        product_id = request.POST.get('prod_id')
-        if not product_id:
-            return JsonResponse({'error': 'Invalid product ID'}, status=400)
-
-        product = Product.objects.filter(id=product_id).first()
-        if not product:
             return JsonResponse({'error': 'Product not found'}, status=404)
-
-        wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
-        if not created:
-            return JsonResponse({'message': 'Product already in wishlist', 'success': True})
-
-        return JsonResponse({'message': ' Product added to wishlist', 'success': True})
-
     return JsonResponse({'error': 'Invalid request'}, status=400)
 
-def wishlist_view(request):
-    return JsonResponse({"message": "Wishlist endpoint is working"})
+@login_required
+def show_wishlist(request):
+    wishlist_items = Wishlist.objects.filter(user=request.user).select_related('product')
+    return render(request, 'myapp/wishlist.html', {'wishlist_items': wishlist_items})
+    
+@login_required
+def add_to_wishlist(request):
+    if request.method == "POST":
+        prod_id = request.POST.get("prod_id")
+        product = Product.objects.get(id=prod_id)
+        wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
+
+        if not created:
+            return JsonResponse({"error": "Product is already in your wishlist."})
+        return JsonResponse({"success": True, "message": "Product added to your wishlist! 💖"})
+    return JsonResponse({"error": "Invalid request method."})
+
+def remove_from_wishlist(request):
+    if request.method == "POST":
+        prod_id = request.POST.get('prod_id')
+        product = Product.objects.get(id=prod_id)
+        Wishlist.objects.filter(user=request.user, product=product).delete()
+        return JsonResponse({'status': 'success', 'message': 'Removed from wishlist 🗑️'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'})
+
 
 def show_cart(request):
     if request.method == "POST":
@@ -311,15 +301,10 @@ def order_view(request):
     return render(request, 'your_template.html', {'orders': orders})
 
 
-def search_view(request):
-    query = request.GET.get('q', '')  
-    products = Product.objects.all()
-
-    if query:
-        # Filter products based on the search query
-        products = products.filter(Q(name__icontains=query) | Q(description__icontains=query))
-
-    return render(request, 'shop/search_results.html', {'products': products, 'query': query})
+def search(request):
+    query = request.GET.get('q', '')
+    products = Product.objects.filter(Q(tittle__icontains=query) | Q(description__icontains=query)) if query else []
+    return render(request, 'myapp/search_results.html', {'query': query, 'results': products})
 
 def payment_view(request):
     """Render the payment selection page."""

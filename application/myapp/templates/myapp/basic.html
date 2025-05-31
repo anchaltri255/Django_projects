@@ -159,7 +159,8 @@
         <div class="container-fluid">
           <li class="nav-item mx-1">
           <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'app/images/product/logo.png' %}" width="130" height="40"/>
+            <!--<img src="{% static 'app/images/product/logo.png' %}" width="130" height="40"/>-->
+            <img src="{% static 'app/images/product/logo2.png' %}" width="100" height="40"/>
           </a>
           </li>
           
@@ -170,12 +171,17 @@
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item mx-3">
-                <form class="d-flex" role="search" style="width: 550px;">
-                  <input class="form-control me-2" type="search" placeholder="What can we help you find?" aria-label="Search">
-                  <button class="btn btn-outline-primary" type="button"><i class="fas fa-microphone"></i></button>
-                  <li class="nav-item dropdown mx-1"></li>
-                  <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                <form class="d-flex" role="search" method="get" action="/search/" style="width: 550px;">
+                  <input class="form-control me-2" type="search" name="q" placeholder="What can we help you find?" aria-label="Search">
+                  
+                  <button class="btn btn-outline-primary" type="button">
+                    <i class="fas fa-microphone"></i>
+                  </button>
+                
+                  <button class="btn btn-outline-success" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </form>                
               </li>
               <li class="nav-item dropdown mx-3">
                 <a class="nav-link dropdown-toggle text-white" href="{% url 'profile' %}"
@@ -195,7 +201,7 @@
                 <a href="{% url 'showcart' %}" class="nav-link text-white"><i class="fas fa-shopping-cart"></i> Cart</a>
               </li>
               <li class="nav-item mx-3">
-                <a href="{% url 'add_to_wishlist' %}" class="nav-link text-white"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="{% url 'wishlist' %}" class="nav-link text-white"><i class="fas fa-heart"></i> Wishlist</a>
               </li>
               <li class="nav-item mx-3">
                 <a href="/logout/" class="nav-link text-white"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
@@ -357,13 +363,6 @@
                     <li><a class="dropdown-item" href="{% url 'category' 'WS' %}">Wall Shelves</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'PP' %}">Pots and Planters Showpieces</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'VS' %}">Vases</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'OE' %}">Outdoor Decor</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'WH' %}">Wall Hangings</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'CB' %}">Collectibles</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'PF' %}">Photo Frames</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'HF' %}">Home Fragrances</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'JK' %}">Jharokhas</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'FD' %}">Festive Decor</a></li>
                 </ul>
               </li> 
               <li class="nav-item dropdown">
@@ -373,10 +372,10 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'category' 'DW' %}">Dishwasher</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'RG' %}">Refrigerators</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'RG' %}">WaterGeyser</a></li>
+                    
                     <li><a class="dropdown-item" href="{% url 'category' 'WP' %}">Water Purifiers</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'MO' %}">Microwave Ovens</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'LN' %}">Laundry</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MV' %}">Microwave Ovens</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'WM' %}">Laundry</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'MX' %}">Mixer</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'EI' %}">Electric Iron</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'IN' %}">Indection</a></li>
@@ -389,7 +388,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{% url 'category' 'WM' %}">Washing Machines</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'RG' %}">Refrigerators</a></li>
-                    <li><a class="dropdown-item" href="{% url 'category' 'MO' %}">Microwave Ovens</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'MV' %}">Microwave Ovens</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'WP' %}">Water Purifiers</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">TVs</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'AP' %}">Air Purifiers</a></li>
@@ -420,7 +419,7 @@
                   TV/Vedio/Audio
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'category' 'TVS' %}">TV & Soundbars</a></li>
+                    <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">TV & Soundbars</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'STV' %}">webOS for Smart TV</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'TV' %}">TV by Size</a></li>
                     <li><a class="dropdown-item" href="{% url 'category' 'AU' %}">Audio</a></li>

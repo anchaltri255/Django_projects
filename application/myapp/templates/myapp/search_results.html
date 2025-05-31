@@ -1,27 +1,31 @@
 {% extends "myapp/basic.html" %}
 {% load static %}
-{% block title %}Cart{% endblock title %}
+
+{% block title %}Search Results{% endblock title %}
 
 {% block main-content %}
 <div class="container my-5">
-    <h1>Search Results</h1>
+    <h1 class="mb-4">Search Results</h1>
+    <h3 class="mb-4">Search Results for "{{ query }}"</h3>
 
-    {% if products %}
-        <p>Showing results for "{{ query }}"</p>
-        <ul>
-            {% for product in products %}
-                <li>
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.product_image.url }}" alt="{{ product.tittle }}" style="max-width: 100px;">
-                        <h3>{{ product.tittle }}</h3>
-                        <p>{{ product.description }}</p>
-                        <p>Price: Rs. {{ product.discounted_price }}</p>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+    {% if results %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        {% for product in results %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ product.product_image.url }}" class="card-img-top" alt="{{ product.tittle }}" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.tittle }}</h5>
+                    <p class="card-text text-muted">{{ product.description|truncatewords:15 }}</p>
+                    <p class="fw-bold">₹{{ product.discounted_price }}</p>
+                    <a href="{% url 'product-detail' product.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     {% else %}
-        <p>No products found for "{{ query }}"</p>
+    <p class="text-danger mt-4">No products found.</p>
     {% endif %}
 </div>
 {% endblock main-content %}
